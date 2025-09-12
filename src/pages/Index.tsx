@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import RsvpForm from '@/components/RsvpForm';
-import heroImage from '@/assets/baby-shower-hero.png';
+import heroImage from '@/assets/baby-shower-evite-hero.png';
 
 const Index = () => {
     const [isRsvpOpen, setIsRsvpOpen] = useState(false);
