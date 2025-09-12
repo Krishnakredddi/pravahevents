@@ -37,7 +37,7 @@ const Index = () => {
                                 <div className="flex flex-col sm:flex-row gap-4 text-muted-foreground">
                                     <div className="flex items-center gap-2 bg-glass backdrop-blur-glass rounded-full px-4 py-2 border border-glass">
                                         <span className="font-medium">📅</span>
-                                        <span className="font-medium">September 26th, 2025</span>
+                                        <span className="font-medium">September 28th, 2025</span>
                                     </div>
                                     <div className="flex items-center gap-2 bg-glass backdrop-blur-glass rounded-full px-4 py-2 border border-glass">
                                         <span className="font-medium">⏰</span>
@@ -103,7 +103,7 @@ const Index = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="group text-center space-y-4 p-6 bg-gradient-card backdrop-blur-glass rounded-3xl border border-glass shadow-soft hover:shadow-elegant transition-spring hover:scale-105">
                             <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto shadow-glow group-hover:shadow-glass transition-spring">
-                                <span className="text-3xl">🙏</span>
+                                <span className="text-3xl">⭕⭕</span>
                             </div>
                             <h3 className="text-xl font-bold text-primary">Bangle Ceremony</h3>
                             <p className="text-muted-foreground">
@@ -113,7 +113,7 @@ const Index = () => {
 
                         <div className="group text-center space-y-4 p-6 bg-gradient-card backdrop-blur-glass rounded-3xl border border-glass shadow-soft hover:shadow-elegant transition-spring hover:scale-105">
                             <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto shadow-glow group-hover:shadow-glass transition-spring">
-                                <span className="text-3xl">🎮</span>
+                                <span className="text-3xl">🙏 📸</span>
                             </div>
                             <h3 className="text-xl font-bold text-primary">Blessings & Photos</h3>
                             <p className="text-muted-foreground">
@@ -137,7 +137,7 @@ const Index = () => {
                             </div>
                             <h3 className="text-xl font-bold text-primary">Special Performances</h3>
                             <p className="text-muted-foreground">
-                                Live music, cultural performances, and entertainment to make the day memorable
+                                Live music and entertainment to make the day memorable
                             </p>
                         </div>
                     </div>
