@@ -7,9 +7,10 @@ import hero2 from '@/assets/durga_puja.jpg';
 import hero3 from '@/assets/bathukamma.jpg';
 import hero4 from '@/assets/garba.jpg';
 import hero5 from '@/assets/dandiya.jpg';
+import hero6 from '@/assets/sponsors.jpg';
 
 const SLIDE_MS = 2500;                    // 1/2 second per image
-const HERO_IMAGES = [hero1, hero2, hero3, hero4, hero5];
+const HERO_IMAGES = [hero1, hero2, hero3, hero4, hero5, hero6];
 
 const Index: React.FC = () => {
     const [isRsvpOpen, setIsRsvpOpen] = useState(false);
@@ -115,6 +116,18 @@ const Index: React.FC = () => {
                                 >
                                     RSVP Now ✨
                                 </Button>
+                                {/* Capacity note */}
+                                <div
+                                    className="mt-3 text-sm rounded-xl px-4 py-2 border
+             bg-amber-50/90 border-amber-200 text-amber-800 flex items-start gap-2"
+                                    role="note"
+                                >
+                                    <span aria-hidden>⚠️</span>
+                                    <span className="text-muted-foreground">
+    Capacity limited to <b>200</b> guests. Registration is <b>first-come, first-served</b>.
+    Your RSVP should include <i>all guests in your party including children</i>.
+  </span>
+                                </div>
                             </div>
                         </div>
                     </div>
