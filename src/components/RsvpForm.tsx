@@ -208,7 +208,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
                         Join the Celebration!
                     </DialogTitle>
                     <p className="text-muted-foreground mt-2">
-                        We’d love to have you celebrate our little prince with us
+                        We’re delighted to have you join us for Dussehra.
                     </p>
                 </DialogHeader>
 
