@@ -104,8 +104,8 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
         const startDate = '20250926T153000Z';
         const endDate = '20250926T200000Z';
         const title = 'Dussehra Utsav 2025';
-        const details = 'Baby shower celebration—welcoming our little one with love and joy';
-        const location = 'Heydenshore Bnaquet Hall, 589 Water St, Whitby, ON';
+        const details = 'Blessings, blossoms, and beats—one festive evening.';
+        const location = 'Heydenshore Banquet Hall, 589 Water St, Whitby, ON';
 
         if (type === 'google') {
             const googleUrl =
