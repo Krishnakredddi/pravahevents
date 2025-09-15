@@ -262,9 +262,9 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
                                 <SelectItem value="2">Me + 1 (2 people)</SelectItem>
                                 <SelectItem value="3">Me + 2 (3 people)</SelectItem>
                                 <SelectItem value="4">Me + 3 (4 people)</SelectItem>
-                                <SelectItem value="4">Me + 4 (5 people)</SelectItem>
-                                <SelectItem value="4">Me + 5 (6 people)</SelectItem>
-                                <SelectItem value="5+">Family group (6+ people)</SelectItem>
+                                <SelectItem value="5">Me + 4 (5 people)</SelectItem>
+                                <SelectItem value="6">Me + 5 (6 people)</SelectItem>
+                                <SelectItem value="7+">Family group (6+ people)</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
