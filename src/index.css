@@ -17,7 +17,7 @@ All colors MUST be HSL.
         --popover: 0 0% 100%;
         --popover-foreground: 220 15% 15%;
 
-        --primary: 220 90% 56%;
+        --primary: 26 60% 40%;
         --primary-foreground: 0 0% 100%;
         --primary-glow: 210 100% 70%;
         --primary-light: 220 70% 85%;
@@ -26,7 +26,7 @@ All colors MUST be HSL.
         --secondary-foreground: 220 70% 25%;
 
         --muted: 220 20% 95%;
-        --muted-foreground: 220 10% 50%;
+        --muted-foreground: 220 16% 20%;
 
         --accent: 200 100% 65%;
         --accent-foreground: 220 15% 15%;
@@ -42,8 +42,8 @@ All colors MUST be HSL.
         --radius: 0.75rem;
 
         /* Baby shower blue gradients */
-        --gradient-primary: linear-gradient(135deg, #005BEAFF 0%, #e2e2e2 45%, #89fbff 75%, #005bea 100%);
-        --gradient-hero: linear-gradient(135deg, #e6f4ff 0%, rgba(226, 226, 226, 0.8) 50%, #89c2ff 100%);
+        --gradient-primary: linear-gradient(135deg, rgb(234, 43, 0) 0%, rgba(255, 168, 137, 0.98) 45%, #EA2B00FF 75%, #FFA889F9 100%);
+        --gradient-hero: linear-gradient(135deg, #EA6200FF 0%, rgba(255, 168, 137, 0.98) 50%, #FFA889F9 100%);
         --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
         --gradient-overlay: linear-gradient(135deg, rgba(201, 214, 255, 0.1), rgba(137, 194, 255, 0.1));
 

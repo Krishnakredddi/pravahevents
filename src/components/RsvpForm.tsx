@@ -63,7 +63,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
             phone: formData.phone.trim(),
             guestCount,
             notes: formData.notes?.trim() || '',
-            eventSlug: 'baby-shower',
+            eventSlug: 'Dussera Utsav 2025',
             ua: typeof navigator !== 'undefined' ? navigator.userAgent : ''
         };
 
@@ -101,11 +101,11 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
 
     const addToCalendar = (type: 'google' | 'outlook') => {
         // Toronto (EDT) Sep 28, 2025 11:30–16:00 => 15:30–20:00 UTC
-        const startDate = '20250928T153000Z';
-        const endDate = '20250928T200000Z';
-        const title = 'Baby Shower Celebration';
+        const startDate = '20250926T153000Z';
+        const endDate = '20250926T200000Z';
+        const title = 'Dussehra Utsav 2025';
         const details = 'Baby shower celebration—welcoming our little one with love and joy';
-        const location = 'HMS Banquet Hall, Ajax Community Centre, 75 Centennial Rd, Ajax, ON';
+        const location = 'Heydenshore Bnaquet Hall, 589 Water St, Whitby, ON';
 
         if (type === 'google') {
             const googleUrl =
@@ -141,22 +141,22 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
                                     <div className="flex items-center gap-4 p-3 bg-primary-light/20 rounded-xl">
                                         <Calendar className="h-6 w-6 text-primary flex-shrink-0" />
                                         <div className="text-left">
-                                            <p className="font-bold text-primary">Sunday, September 28, 2025</p>
+                                            <p className="font-bold text-primary">Friday, September 26, 2025</p>
                                             <p className="text-sm text-muted-foreground">Mark your calendar! 📅</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4 p-3 bg-accent-light/20 rounded-xl">
                                         <Clock className="h-6 w-6 text-primary flex-shrink-0" />
                                         <div className="text-left">
-                                            <p className="font-bold text-primary">11:30 AM – 4:00 PM</p>
+                                            <p className="font-bold text-primary">05:30 PM – 11:00 PM</p>
                                             <p className="text-sm text-muted-foreground">Celebration begins! ⏰</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4 p-3 bg-primary-light/20 rounded-xl">
                                         <MapPin className="h-6 w-6 text-primary flex-shrink-0" />
                                         <div className="text-left">
-                                            <p className="font-bold text-primary">HMS Banquet Hall</p>
-                                            <p className="text-sm text-muted-foreground">75 Centennial Rd, Ajax, ON 📍</p>
+                                            <p className="font-bold text-primary">Heydenshore Banquet Hall</p>
+                                            <p className="text-sm text-muted-foreground">589 Water St, Whitby, ON 📍</p>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -205,7 +205,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
             <DialogContent className="max-w-lg bg-gradient-card backdrop-blur-glass border border-glass animate-scale-in">
                 <DialogHeader className="text-center pb-4">
                     <DialogTitle className="text-3xl font-bold text-primary">
-                        Join the Celebration! 🎉
+                        Join the Celebration!
                     </DialogTitle>
                     <p className="text-muted-foreground mt-2">
                         We’d love to have you celebrate our little prince with us
