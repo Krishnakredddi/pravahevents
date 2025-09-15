@@ -148,7 +148,7 @@ const RsvpForm: React.FC<RsvpFormProps> = ({ isOpen, onClose }) => {
                                     <div className="flex items-center gap-4 p-3 bg-accent-light/20 rounded-xl">
                                         <Clock className="h-6 w-6 text-primary flex-shrink-0" />
                                         <div className="text-left">
-                                            <p className="font-bold text-primary">05:30 PM – 11:00 PM</p>
+                                            <p className="font-bold text-primary">05:30 PM – 11:30 PM</p>
                                             <p className="text-sm text-muted-foreground">Celebration begins! ⏰</p>
                                         </div>
                                     </div>
