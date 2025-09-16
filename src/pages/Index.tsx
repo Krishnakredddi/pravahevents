@@ -9,7 +9,7 @@ import hero4 from '@/assets/garba.jpg';
 import hero5 from '@/assets/dandiya.jpg';
 import hero6 from '@/assets/sponsors.jpg';
 
-const SLIDE_MS = 2500;                    // 1/2 second per image
+const SLIDE_MS = 4000;                    // 1/2 second per image
 const HERO_IMAGES = [hero1, hero2, hero3, hero4, hero5, hero6];
 
 const Index: React.FC = () => {
