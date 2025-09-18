@@ -12,12 +12,52 @@ import hero6 from '@/assets/sponsors.jpg';
 const SLIDE_MS = 4000;                    // 1/2 second per image
 const HERO_IMAGES = [hero1, hero2, hero3, hero4, hero5, hero6];
 
+// === 1) Add these at the top ===
+const CAPACITY_URL = import.meta.env.VITE_SHEETS_WEBAPP_URL as string;
+const MAX_GUESTS = 240; // <-- your cap
+
+type Summary = {
+    ok: boolean;
+    totalRsvps: number;
+    totalGuests: number;
+    updatedAt: string;
+    maxGuests?: number// ISO string from GAS
+};
+
+// ...
+
+
 const Index: React.FC = () => {
     const [isRsvpOpen, setIsRsvpOpen] = useState(false);
     const [idx, setIdx] = useState(0);
 
+    // NEW: capacity state
+    const [summary, setSummary] = useState<Summary | null>(null);
+    const [capErr, setCapErr] = useState<string | null>(null);
+    const [loadingCap, setLoadingCap] = useState(true);
+
     // Stable list for the slideshow
     const heroImages = useMemo(() => HERO_IMAGES, []);
+
+    useEffect(() => {
+        // fetch capacity right away + every 60s
+        const load = async () => {
+            try {
+                const res = await fetch(CAPACITY_URL, { cache: 'no-store' });   // GET → your doGet()
+                const json: Summary = await res.json();
+                // Expecting: { ok:true, totalGuests: number, ... }
+                setSummary(json);
+                setCapErr(null);
+            } catch (e) {
+                setCapErr('Unable to load capacity right now.');
+            } finally {
+                setLoadingCap(false);
+            }
+        };
+        load();
+        const int = setInterval(load, 60_000);
+        return () => clearInterval(int);
+    }, []);
 
     // Preload + rotate + respect reduced motion
     useEffect(() => {
@@ -45,6 +85,11 @@ const Index: React.FC = () => {
             document.removeEventListener('visibilitychange', onVis);
         };
     }, [heroImages]);
+
+    const cap = summary?.maxGuests ?? MAX_GUESTS;
+    const atCapacity = summary ? summary.totalGuests >= cap : false;
+    const disabled = loadingCap || atCapacity;
+    const remaining = summary ? Math.max(0, MAX_GUESTS - summary.totalGuests) : null;
 
     return (
         <main className="min-h-screen bg-gradient-hero relative overflow-hidden">
@@ -108,14 +153,60 @@ const Index: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <Button
+                                {/*<Button
                                     variant="hero"
                                     size="lg"
                                     onClick={() => setIsRsvpOpen(true)}
                                     className="text-lg px-12 py-6 h-auto animate-float"
                                 >
                                     RSVP Now ✨
+                                </Button>*/}
+
+                                {/*<Button
+                                    variant="hero"
+                                    size="lg"
+                                    disabled={atCapacity}
+                                    onClick={() => !atCapacity && setIsRsvpOpen(true)}
+                                    className="text-lg px-12 py-6 h-auto animate-float disabled:opacity-60 disabled:cursor-not-allowed"
+                                >
+                                    {atCapacity ? 'At Capacity — Contact Admin' : 'RSVP Now ✨'}
+                                </Button>*/}
+
+                                <Button
+                                    variant="hero"
+                                    size="lg"
+                                    disabled={disabled}
+                                    onClick={() => !disabled && setIsRsvpOpen(true)}
+                                    className="text-lg px-12 py-6 h-auto animate-float disabled:opacity-60 disabled:cursor-not-allowed"
+                                >
+                                    {loadingCap ? 'Checking capacity…' : atCapacity ? 'At Capacity — Contact Admin' : 'RSVP Now ✨'}
                                 </Button>
+
+                                {/* Under the button, show capacity info / message */}
+                                {capErr && (
+                                    <div className="mt-3 text-sm rounded-xl px-4 py-2 border bg-red-50 border-red-200 text-red-800">
+                                        {capErr}
+                                    </div>
+                                )}
+
+                                {summary && remaining !== null && remaining > 0 && (
+                                    <div
+                                        className="mt-3 text-sm rounded-xl px-4 py-2 border bg-amber-50/90 border-amber-200 text-amber-800"
+                                        role="note"
+                                    >
+                                        Remaining spots: <b>{remaining}</b> / {MAX_GUESTS}
+                                    </div>
+                                )}
+
+                                {summary && remaining === 0 && (
+                                    <div
+                                        className="mt-3 text-sm rounded-xl px-4 py-2 border bg-amber-50/90 border-amber-200 text-amber-800"
+                                    >
+                                        We have reached the maximum guest limit. Kindly contact the administrators regarding availability or approval.
+                                    </div>
+                                )}
+
+
                                 {/* Capacity note */}
                                 <div
                                     className="mt-3 text-sm rounded-xl px-4 py-2 border
@@ -124,7 +215,7 @@ const Index: React.FC = () => {
                                 >
                                     <span aria-hidden>⚠️</span>
                                     <span className="text-muted-foreground">
-    Capacity limited to <b>200</b> guests. Registration is <b>first-come, first-served</b>.
+    Capacity limited to <b>240</b> guests. Registration is <b>first-come, first-served</b>.
     Your RSVP should include <i>all guests in your party including children</i>.
   </span>
                                 </div>
@@ -197,7 +288,13 @@ const Index: React.FC = () => {
             </section>
 
             {/* RSVP Form Modal */}
-            <RsvpForm isOpen={isRsvpOpen} onClose={() => setIsRsvpOpen(false)} />
+            <RsvpForm
+                isOpen={isRsvpOpen}
+                onClose={() => setIsRsvpOpen(false)}
+                // pass a guard so the modal double-checks
+                capacityUrl={CAPACITY_URL}
+                maxGuests={cap}
+            />
 
         </main>
     );
